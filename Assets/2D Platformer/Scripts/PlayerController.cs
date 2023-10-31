@@ -22,14 +22,46 @@ namespace Platformer
         private GameManager gameManager;
 
         public GameObject weapon;
-     
+
+        Vector2 startPos;
 
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            startPos = transform.position;
         }
+
+
+        private void OnTriggerEnter2D(Collider2D Collision)
+        {
+            if (Collision.CompareTag("Obstacle"))
+            {
+                Die();
+            }
+
+        }
+
+        void Die()
+        {
+            Respawn();
+
+        }
+        void Respawn()
+        {
+            transform.position = startPos;
+        }
+
+       
+       
+        
+
+       
+
+
+
+       
 
         private void FixedUpdate()
         {
@@ -115,13 +147,7 @@ namespace Platformer
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.tag == "Coin")
-            {
-                gameManager.coinsCounter += 1;
-                Destroy(other.gameObject);
-            }
-        }
+        
+        
     }
 }
