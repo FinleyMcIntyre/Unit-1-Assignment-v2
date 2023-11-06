@@ -23,14 +23,14 @@ namespace Platformer
 
         public GameObject weapon;
 
-        Vector2 startPos;
+        Vector2 checkpointPos;
 
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-            startPos = transform.position;
+            checkpointPos = transform.position;
         }
 
 
@@ -50,7 +50,12 @@ namespace Platformer
         }
         void Respawn()
         {
-            transform.position = startPos;
+            transform.position = checkpointPos;
+        }
+
+        public void UpdateCheckpoint(Vector2 pos)
+        {
+            checkpointPos = pos;
         }
 
        
