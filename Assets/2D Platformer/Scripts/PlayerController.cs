@@ -23,6 +23,8 @@ namespace Platformer
 
         public GameObject weapon;
 
+        
+
         Vector2 checkpointPos;
 
         void Start()
@@ -40,6 +42,8 @@ namespace Platformer
             {
                 Die();
             }
+
+           
 
         }
 
@@ -140,17 +144,7 @@ namespace Platformer
             isGrounded = colliders.Length > 1;
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.tag == "Enemy")
-            {
-                deathState = true; // Say to GameManager that player is dead
-            }
-            else
-            {
-                deathState = false;
-            }
-        }
+        
 
         
         
