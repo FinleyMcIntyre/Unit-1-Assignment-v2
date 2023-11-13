@@ -106,7 +106,7 @@ namespace Platformer
             }
 
             int moveDirection = 1;
-            if (Input.GetKeyDown("enter") && facingRight == true)
+            if (Input.GetKeyDown("l") && facingRight == true)
             {
                 GameObject clone;
                 clone = Instantiate(weapon, transform.position, transform.rotation);
@@ -117,7 +117,7 @@ namespace Platformer
             }
 
             int moveDirectionn = 1;
-            if (Input.GetKeyDown("enter") && facingRight == false)
+            if (Input.GetKeyDown("l") && facingRight == false)
             {
                 GameObject clone;
                 clone = Instantiate(weapon, transform.position, transform.rotation);
